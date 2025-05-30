@@ -1,0 +1,56 @@
+{% extends "bolao/layout.html" %}
+{% load static %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="auth-box">
+        <h2>Criar Conta</h2>
+        <form method="post" class="auth-form">
+            {% csrf_token %}
+            {% if form.errors %}
+            <div class="error-message">
+                {% for field in form %}
+                {% for error in field.errors %}
+                <p>{{ error }}</p>
+                {% endfor %}
+                {% endfor %}
+            </div>
+            {% endif %}
+            <div class="form-group">
+                <label for="id_username">Nome de usuário:</label>
+                {{ form.username }}
+                {% if form.username.help_text %}
+                <small class="help-text">{{ form.username.help_text }}</small>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="id_email">E-mail:</label>
+                {{ form.email }}
+                {% if form.email.help_text %}
+                <small class="help-text">{{ form.email.help_text }}</small>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="id_password1">Senha:</label>
+                {{ form.password1 }}
+                {% if form.password1.help_text %}
+                <small class="help-text">{{ form.password1.help_text }}</small>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="id_password2">Confirme a senha:</label>
+                {{ form.password2 }}
+                {% if form.password2.help_text %}
+                <small class="help-text">{{ form.password2.help_text }}</small>
+                {% endif %}
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </div>
+        </form>
+        <div class="auth-links">
+            <p>Já tem uma conta? <a href="{% url 'login' %}">Entrar</a></p>
+        </div>
+    </div>
+</div>
+{% endblock content %}
