@@ -19,30 +19,18 @@
             <div class="form-group">
                 <label for="id_username">Nome de usuário:</label>
                 {{ form.username }}
-                {% if form.username.help_text %}
-                <small class="help-text">{{ form.username.help_text }}</small>
-                {% endif %}
             </div>
             <div class="form-group">
                 <label for="id_email">E-mail:</label>
                 {{ form.email }}
-                {% if form.email.help_text %}
-                <small class="help-text">{{ form.email.help_text }}</small>
-                {% endif %}
             </div>
             <div class="form-group">
                 <label for="id_password1">Senha:</label>
                 {{ form.password1 }}
-                {% if form.password1.help_text %}
-                <small class="help-text">{{ form.password1.help_text }}</small>
-                {% endif %}
             </div>
             <div class="form-group">
                 <label for="id_password2">Confirme a senha:</label>
                 {{ form.password2 }}
-                {% if form.password2.help_text %}
-                <small class="help-text">{{ form.password2.help_text }}</small>
-                {% endif %}
             </div>
             <div class="form-actions">
                 <button type="submit" class="btn btn-primary">Cadastrar</button>

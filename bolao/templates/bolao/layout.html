@@ -43,16 +43,13 @@
           alt="{{ user.username }}">
         <div class="dropdown" id="dropdownMenu">
           <a href="#">👤 Meu Perfil</a>
-          <a href="#">⚙️ Configurações</a>
-          <a href="#">🛡️ Privacidade</a>
-          <a href="#">💬 Feedback</a>
           <a href="{% url 'logout' %}" class="logout-link">🚪 Sair</a>
         </div>
       </div>
       {% else %}
       <div class="auth-buttons">
-        <a href="{% url 'login' %}" class="btn btn-login">Sign In</a>
-        <a href="{% url 'register' %}" class="btn btn-register">Sign Up</a>
+        <a href="{% url 'login' %}" class="btn btn-login">Entrar</a>
+        <a href="{% url 'register' %}" class="btn btn-register">Criar conta</a>
       </div>
       {% endif %}
     </div>
