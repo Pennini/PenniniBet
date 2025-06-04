@@ -3,19 +3,39 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.core.exceptions import ValidationError
+from .models import AccessToken
 
 class UserRegistrationForm(UserCreationForm):
     email = forms.EmailField(required=True)
+    access_token = forms.CharField(
+        required=True,
+        help_text="Digite o token de acesso fornecido para participar do bolão."
+    )
 
     class Meta:
         model = User
-        fields = ("username", "email", "password1", "password2")
+        fields = ("username", "email", "password1", "password2", "access_token")
+
+    def clean_access_token(self):
+        token = self.cleaned_data.get('access_token')
+        try:
+            access_token = AccessToken.objects.get(token=token)
+            if not access_token.is_valid():
+                raise ValidationError("Este token de acesso é inválido ou expirou.")
+            return token
+        except AccessToken.DoesNotExist:
+            raise ValidationError("Token de acesso inválido.")
 
     def save(self, commit=True):
         user = super().save(commit=False)
         user.email = self.cleaned_data["email"]
+        
         if commit:
             user.save()
+            # Use the access token
+            token = AccessToken.objects.get(token=self.cleaned_data['access_token'])
+            token.use()
+            
         return user
 
 class UserLoginForm(forms.Form):

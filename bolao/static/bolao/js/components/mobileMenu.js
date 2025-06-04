@@ -20,7 +20,7 @@ export const initMobileMenu = () => {
 
     // Close menu on window resize
     window.addEventListener('resize', () => {
-        if (window.innerWidth > 768) {
+        if (window.innerWidth > 850) {
             mobileMenuBtn.classList.remove('active');
             navLinks.classList.remove('active');
         }

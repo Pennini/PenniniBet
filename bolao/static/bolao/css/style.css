@@ -343,7 +343,7 @@ nav {
 }
 
 /* Responsive Design */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 850px) {
     .mobile-menu-btn {
         display: block;
     }

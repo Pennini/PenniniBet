@@ -30,7 +30,7 @@
             <img src="https://randomuser.me/api/portraits/women/44.jpg" class="avatar" id="avatar"
                 alt="{{ user.username }}">
             <div class="dropdown" id="dropdownMenu">
-                <a href="#">👤 Meu Perfil</a>
+                <a style="pointer-events: none;" href="#">👤 {{ user.username }}</a>
                 <a href="{% url 'logout' %}" class="logout-link">🚪 Sair</a>
             </div>
         </div>
