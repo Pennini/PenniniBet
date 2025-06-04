@@ -1,3 +1,40 @@
+/* Base */
+@import 'base/_reset.css';
+@import 'base/_variables.css';
+
+/* Components */
+@import 'components/_buttons.css';
+@import 'components/_navbar.css';
+@import 'components/_dropdown.css';
+
+/* Layout */
+.container {
+    max-width: var(--breakpoint-lg);
+    margin: 0 auto;
+    padding: var(--spacing-lg);
+}
+
+/* Sections */
+.welcome-section,
+.events-section,
+.orders-section,
+.settings-section {
+    text-align: center;
+    padding: var(--spacing-xl) 0;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    margin-bottom: var(--spacing-md);
+}
+
+p {
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
 /* Reset */
 * {
     margin: 0;
@@ -129,20 +166,10 @@ body {
     padding-top: var(--navbar-height);
 }
 
-h1 {
-    font: var(--h1);
-    color: var(--text-color);
-}
-
 h2 {
     font: var(--h2);
     color: var(--text-color);
     margin: var(--spacing2) 0;
-}
-
-p {
-    margin: var(--spacing2) 0;
-    color: var(--text-secondary);
 }
 
 a {
@@ -477,6 +504,8 @@ nav {
     width: 100%;
     max-width: 400px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    /* Prevent content from overflowing */
 }
 
 .auth-box h2 {
@@ -485,8 +514,13 @@ nav {
     color: var(--text-color);
 }
 
+.auth-form {
+    width: 100%;
+}
+
 .auth-form .form-group {
     margin-bottom: var(--spacing3);
+    width: 100%;
 }
 
 .auth-form label {
@@ -504,6 +538,7 @@ nav {
     color: var(--text-color);
     font: var(--p);
     transition: all 0.2s ease;
+    box-sizing: border-box;
 }
 
 .auth-form input:focus {
@@ -526,10 +561,13 @@ nav {
     padding: var(--spacing2);
     border-radius: var(--border-radius);
     margin-bottom: var(--spacing3);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .auth-form .form-actions {
     margin-top: var(--spacing3);
+    width: 100%;
 }
 
 .auth-form .form-actions button {
@@ -539,6 +577,8 @@ nav {
     font-weight: 500;
     transition: all 0.3s ease;
     box-shadow: 0 2px 4px rgba(251, 146, 60, 0.1);
+    box-sizing: border-box;
+    margin: 0;
 }
 
 .auth-form .form-actions button:hover {
@@ -699,4 +739,31 @@ nav {
 .badge-info {
     background: var(--info-bg);
     color: var(--info-600);
+}
+
+.help-text.error {
+    color: var(--danger-color);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+.error-message {
+    background-color: var(--error-bg);
+    border: 1px solid var(--danger-color);
+    color: var(--danger-color);
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.error-message p {
+    color: var(--danger-color);
+    margin: 0;
+    font-size: 0.875rem;
+}
+
+.form-group.has-error input {
+    border-color: var(--danger-color);
+    background-color: var(--error-bg);
 }

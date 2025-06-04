@@ -1,0 +1,44 @@
+{% load static %}
+<nav>
+    <!-- Left -->
+    <div class="nav-left">
+        <a href="{% url 'index' %}" class="logo">
+            <img src="{% static 'bolao/img/logo_bola.svg' %}" alt="Meu Ícone">
+            <span>Pennini Bet</span>
+        </a>
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Navigation Links -->
+        <div class="nav-links" id="navLinks">
+            <a href="{% url 'index' %}" class="nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
+            <a href="{% url 'events' %}" class="nav-link {% if 'events' in request.path %}active{% endif %}">Events</a>
+            <a href="{% url 'orders' %}" class="nav-link {% if 'orders' in request.path %}active{% endif %}">Orders</a>
+            <a href="{% url 'settings' %}"
+                class="nav-link {% if 'settings' in request.path %}active{% endif %}">Settings</a>
+        </div>
+    </div>
+
+    <!-- Right -->
+    <div class="nav-right">
+        {% if user.is_authenticated %}
+        <div class="profile">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" class="avatar" id="avatar"
+                alt="{{ user.username }}">
+            <div class="dropdown" id="dropdownMenu">
+                <a href="#">👤 Meu Perfil</a>
+                <a href="{% url 'logout' %}" class="logout-link">🚪 Sair</a>
+            </div>
+        </div>
+        {% else %}
+        <div class="auth-buttons">
+            <a href="{% url 'login' %}" class="btn btn-login">Entrar</a>
+            <a href="{% url 'register' %}" class="btn btn-register">Criar conta</a>
+        </div>
+        {% endif %}
+    </div>
+</nav>

@@ -60,6 +60,7 @@ cover/
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
+media/
 
 # Flask stuff:
 instance/
@@ -172,3 +173,17 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Environment variables
+.env.local
+.env.*.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
