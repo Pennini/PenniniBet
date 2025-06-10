@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualização do Campeonato</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .tournament-bracket {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            overflow-x: auto;
+            min-width: 1200px;
+        }
+
+        .round {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 220px;
+            margin: 0 10px;
+            position: relative;
+        }
+
+        .round-title {
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+
+        .match {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin: 8px 0;
+            padding: 8px;
+            border: 1px solid #ddd;
+            position: relative;
+        }
+
+        .match::after {
+            content: '';
+            position: absolute;
+            right: -11px;
+            top: 50%;
+            width: 10px;
+            height: 2px;
+            background: #ddd;
+        }
+
+        .round:last-child .match::after {
+            display: none;
+        }
+
+        .team {
+            display: flex;
+            align-items: center;
+            padding: 4px;
+            font-size: 0.9em;
+        }
+
+        .team:first-child {
+            border-bottom: 1px solid #eee;
+        }
+
+        .flag {
+            width: 20px;
+            height: 14px;
+            margin-right: 6px;
+            border: 1px solid #eee;
+        }
+
+        .score {
+            margin-left: auto;
+            font-weight: 500;
+            color: #444;
+        }
+
+        .winner {
+            background-color: #f8f9fa;
+        }
+
+        .groups-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .group {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+        }
+
+        .group h3 {
+            font-size: 1em;
+            margin-bottom: 10px;
+            color: #444;
+        }
+
+        .group-table {
+            width: 100%;
+            font-size: 0.9em;
+        }
+
+        .group-table th,
+        .group-table td {
+            padding: 6px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .group-table th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: #444;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+            margin: 30px 0 20px;
+            text-align: center;
+            font-size: 1.5em;
+        }
+
+        .third-place {
+            text-align: center;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin: 20px auto;
+            max-width: 300px;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <h2>KNOCKOUT</h2>
+        <div class="tournament-bracket">
+            <!-- Round of 16 - Left Side -->
+            <div class="round">
+                <div class="round-title">Round of 16</div>
+                <div class="match">
+                    <div class="team">
+                        <img src="https://flagcdn.com/w40/nl.png" class="flag" alt="NED">
+                        <span>NED</span>
+                        <span class="score">3</span>
+                    </div>
+                    <div class="team">
+                        <img src="https://flagcdn.com/w40/us.png" class="flag" alt="USA">
+                        <span>USA</span>
+                        <span class="score">1</span>
+                    </div>
+                </div>
+                <div class="match">
+                    <div class="team">
+                        <img src="https://flagcdn.com/w40/ar.png" class="flag" alt="ARG">
+                        <span>ARG</span>
+                        <span class="score">2</span>
+                    </div>
+                    <div class="team">
+                        <img src="https://flagcdn.com/w40/au.png" class="flag" alt="AUS">
+                        <span>AUS</span>
+                        <span class="score">1</span>
+                    </div>
+                </div>
+                <div class="match">
+                    <div class="team">
+                        <img src="https://flagcdn.com/w40/jp.png" class="flag" alt="JPN">
+                        <span>JPN</span>
+                        <span class="score">1</span>
+                    </div>
+                    <div class="team">
+                        <img src="https://flagcdn.com/w40/hr.png" class="flag" alt="CRO">
+                        <span>CRO</span>
+                        <span class="score">2</span>
+                    </div>
+                </div>
+                <div class="match">
+                    <div class="team">
+                        <img src="https://flagcdn.com/w40/br.png" class="flag" alt="BRA">
+                        <span>BRA</span>
+                        <span class="score">4</span>
+                    </div>
+                    <div class="team">
+                        <img src="https://flagcdn.com/w40/kr.png" class="flag" alt="KOR">
+                        <span>KOR</span>
+                        <span class="score">1</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quarter-finals - Left -->
+            <div class="round">
+                <div class="round-title">Quarter-final</div>
+                <div class="match">
+                    <div class="team">
+                        <img src="https://flagcdn.com/w40/nl.png" class="flag" alt="NED">
+                        <span>NED</span>
+                        <span class="score">1</span>
+                    </div>
+                    <div class="team winner">
+                        <img src="https://flagcdn.com/w40/ar.png" class="flag" alt="ARG">
+                        <span>ARG</span>
+                        <span class="score">2</span>
+                    </div>
+                </div>
+                <div class="match">
+                    <div class="team winner">
+                        <img src="https://flagcdn.com/w40/hr.png" class="flag" alt="CRO">
+                        <span>CRO</span>
+                        <span class="score">1</span>
+                    </div>
+                    <div class="team">
+                        <img src="https://flagcdn.com/w40/br.png" class="flag" alt="BRA">
+                        <span>BRA</span>
+                        <span class="score">1</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Semi-finals - Left -->
+            <div class="round">
+                <div class="round-title">Semi-final</div>
+                <div class="match">
+                    <div class="team winner">
+                        <img src="https://flagcdn.com/w40/ar.png" class="flag" alt="ARG">
+                        <span>ARG</span>
+                        <span class="score">3</span>
+                    </div>
+                    <div class="team">
+                        <img src="https://flagcdn.com/w40/hr.png" class="flag" alt="CRO">
+                        <span>CRO</span>
+                        <span class="score">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Final -->
+            <div class="round">
+                <div class="round-title">Final</div>
+                <div class="match">
+                    <div class="team winner">
+                        <img src="https://flagcdn.com/w40/ar.png" class="flag" alt="ARG">
+                        <span>ARG</span>
+                        <span class="score">4</span>
+                    </div>
+                    <div class="team">
+                        <img src="https://flagcdn.com/w40/fr.png" class="flag" alt="FRA">
+                        <span>FRA</span>
+                        <span class="score">2</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Semi-finals - Right -->
+            <div class="round">
+                <div class="round-title">Semi-final</div>
+                <div class="match">
+                    <div class="team">
+                        <img src="https://flagcdn.com/w40/ma.png" class="flag" alt="MAR">
+                        <span>MAR</span>
+                        <span class="score">0</span>
+                    </div>
+                    <div class="team winner">
+                        <img src="https://flagcdn.com/w40/fr.png" class="flag" alt="FRA">
+                        <span>FRA</span>
+                        <span class="score">2</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quarter-finals - Right -->
+            <div class="round">
+                <div class="round-title">Quarter-final</div>
+                <div class="match">
+                    <div class="team">
+                        <img src="https://flagcdn.com/w40/pt.png" class="flag" alt="POR">
+                        <span>POR</span>
+                        <span class="score">0</span>
+                    </div>
+                    <div class="team winner">
+                        <img src="https://flagcdn.com/w40/ma.png" class="flag" alt="MAR">
+                        <span>MAR</span>
+                        <span class="score">1</span>
+                    </div>
+                </div>
+                <div class="match">
+                    <div class="team">
+                        <img src="https://flagcdn.com/w40/gb-eng.png" class="flag" alt="ENG">
+                        <span>ENG</span>
+                        <span class="score">1</span>
+                    </div>
+                    <div class="team winner">
+                        <img src="https://flagcdn.com/w40/fr.png" class="flag" alt="FRA">
+                        <span>FRA</span>
+                        <span class="score">2</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Round of 16 - Right Side -->
+            <div class="round">
+                <div class="round-title">Round of 16</div>
+                <div class="match">
+                    <div class="team winner">
+                        <img src="https://flagcdn.com/w40/ma.png" class="flag" alt="MAR">
+                        <span>MAR</span>
+                        <span class="score">0</span>
+                    </div>
+                    <div class="team">
+                        <img src="https://flagcdn.com/w40/es.png" class="flag" alt="ESP">
+                        <span>ESP</span>
+                        <span class="score">0</span>
+                    </div>
+                </div>
+                <div class="match">
+                    <div class="team winner">
+                        <img src="https://flagcdn.com/w40/pt.png" class="flag" alt="POR">
+                        <span>POR</span>
+                        <span class="score">6</span>
+                    </div>
+                    <div class="team">
+                        <img src="https://flagcdn.com/w40/ch.png" class="flag" alt="SUI">
+                        <span>SUI</span>
+                        <span class="score">1</span>
+                    </div>
+                </div>
+                <div class="match">
+                    <div class="team winner">
+                        <img src="https://flagcdn.com/w40/gb-eng.png" class="flag" alt="ENG">
+                        <span>ENG</span>
+                        <span class="score">3</span>
+                    </div>
+                    <div class="team">
+                        <img src="https://flagcdn.com/w40/sn.png" class="flag" alt="SEN">
+                        <span>SEN</span>
+                        <span class="score">0</span>
+                    </div>
+                </div>
+                <div class="match">
+                    <div class="team winner">
+                        <img src="https://flagcdn.com/w40/fr.png" class="flag" alt="FRA">
+                        <span>FRA</span>
+                        <span class="score">3</span>
+                    </div>
+                    <div class="team">
+                        <img src="https://flagcdn.com/w40/pl.png" class="flag" alt="POL">
+                        <span>POL</span>
+                        <span class="score">1</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="third-place">
+            Play-off for third place: CRO 2 - 1 MAR
+        </div>
+
+        <h2>GRUPOS</h2>
+        <div class="groups-container">
+            <!-- Group A -->
+            <div class="group">
+                <h3>Group A</h3>
+                <table class="group-table">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>P</th>
+                            <th>V</th>
+                            <th>E</th>
+                            <th>D</th>
+                            <th>Pts</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align: left">
+                                <img src="https://flagcdn.com/w40/nl.png" class="flag" alt="NED">
+                                NED
+                            </td>
+                            <td>3</td>
+                            <td>2</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left">
+                                <img src="https://flagcdn.com/w40/sn.png" class="flag" alt="SEN">
+                                SEN
+                            </td>
+                            <td>3</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left">
+                                <img src="https://flagcdn.com/w40/ec.png" class="flag" alt="ECU">
+                                ECU
+                            </td>
+                            <td>3</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left">
+                                <img src="https://flagcdn.com/w40/qa.png" class="flag" alt="QAT">
+                                QAT
+                            </td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>3</td>
+                            <td>0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- Repeat for Groups B through H -->
+        </div>
+    </div>
+</body>
+
+</html>
