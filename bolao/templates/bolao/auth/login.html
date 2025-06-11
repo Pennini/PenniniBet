@@ -28,9 +28,10 @@
                 <span class="help-text error">{{ form.username_or_email.errors|join:", " }}</span>
                 {% endif %}
             </div>
-            <div class="form-group">
+            <div class="form-group password-group">
                 <label for="id_password">Senha:</label>
                 {{ form.password }}
+                <i class="fa-solid fa-eye" id="togglePassword" style="position: absolute; right: 15px; top: 38px; cursor: pointer;"></i>
                 {% if form.password.errors %}
                 <span class="help-text error">{{ form.password.errors|join:", " }}</span>
                 {% endif %}

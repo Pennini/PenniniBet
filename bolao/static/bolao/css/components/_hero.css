@@ -1,7 +1,6 @@
 .hero {
     height: 100vh;
     width: 100%;
-    background-image: url('/bolao/static/bolao/img/logocopa.png'); /* Substitua pelo caminho da sua imagem */
     background-size: cover;
     background-position: center;
     display: flex;
@@ -45,30 +44,30 @@
 }
 
 .hero-image {
-    max-width: 40%;
-    z-index: 2;
+    max-width: 25%;
+    z-index: 1;
 }
 
 .hero-image img {
     border-radius: var(--border-radius);
-    width: 100%;
     height: auto;
 }
 
-@media (max-width: 768px) {
-.hero-content {
-    flex-direction: column;
-    text-align: center;
-}
+@media (max-width: var(--breakpoint-md)) {
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
 
-.hero-text, .hero-image {
-    max-width: 100%;
-}
+    .hero-text, .hero-image {
+        max-width: 100%;
+    }
 
-.hero-text h1 {
-    font-size: 2em;
-}
+    .hero-text h1 {
+        font-size: 2em;
+    }
 
-.hero-text button {
-    margin-top: 10px;
+    .hero-text button {
+        margin-top: 10px;
+    }
 }

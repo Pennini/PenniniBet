@@ -8,15 +8,24 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-overlay"></div>
+        <div class="hero-overlay">
+            <img src="" alt="">
+        </div>
         <div class="hero-content">
-        <div class="hero-text">
-            <h1>Sua mensagem impactante aqui</h1>
-            <button onclick="cliqueHero()">Saiba Mais</button>
-        </div>
-        <div class="hero-image">
-            <img src="{% static 'bolao/img/taca_copa.png' %}" alt="Ilustração">
-        </div>
+            <div class="hero-text">
+                {% if user.is_authenticated %}
+                    <h1>Registrado!</h1>
+                    <p>Seja bem-vindo</p>
+                    <a href="{% url "events" %}" class="btn btn-hero">Saiba Mais</a>
+                {% else %}
+                    <h1>Faça Log in</h1>
+                    <p>Registre-se para mais informações</p>
+                    <a href="{% url "register" %}" class="btn btn-hero">Cadastrar</a>
+                {% endif %}
+            </div>
+            <div class="hero-image">
+                <img src="{% static 'bolao/img/taca_copa.png' %}" alt="Ilustração">
+            </div>
         </div>
     </section>
 

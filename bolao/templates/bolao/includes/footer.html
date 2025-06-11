@@ -5,9 +5,14 @@
             <!-- Navigation Links -->
             <div class="col-md-6 mb-2 mb-md-0">
                 <ul class="list-unstyled d-flex gap-3 mb-0">
-                    <li><a href="{% url 'index' %}" class="text-light text-decoration-none">Início</a></li>
-                    <li><a href="{% url 'login' %}" class="text-light text-decoration-none">Login</a></li>
-                    <li><a href="{% url 'register' %}" class="text-light text-decoration-none">Registrar</a></li>
+                    <li><a href="{% url 'index' %}" class="text-light text-decoration-none">Home</a></li>
+                    <li><a href="{% url 'events' %}" class="text-light text-decoration-none">Events</a></li>
+                    <li><a href="{% url 'orders' %}" class="text-light text-decoration-none">Orders</a></li>
+                    <li><a href="{% url 'settings' %}" class="text-light text-decoration-none">Settings</a></li>
+                    {% if not user.is_authenticated %}
+                        <li><a href="{% url 'login' %}" class="text-light text-decoration-none">Login</a></li>
+                        <li><a href="{% url 'register' %}" class="text-light text-decoration-none">Registrar</a></li>
+                    {% endif %}
                 </ul>
             </div>
 

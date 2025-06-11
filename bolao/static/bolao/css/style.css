@@ -1,13 +1,13 @@
 /* Base */
-@import 'base/_reset.css';
-@import 'base/_variables.css';
+@import url('base/_reset.css');
+@import url('base/_variables.css');
 
 /* Components */
-@import 'components/_hero.css';
-@import 'components/_buttons.css';
-@import 'components/_navbar.css';
-@import 'components/_dropdown.css';
-@import 'components/_toast.css'
+@import url('components/_hero.css');
+@import url('components/_buttons.css');
+@import url('components/_navbar.css');
+@import url('components/_dropdown.css');
+@import url('components/_toast.css')
 
 /* Global Styles */
 .container {
@@ -276,6 +276,24 @@ img {
 
 .forgot-password a:hover {
     color: var(--primary-color);
+}
+
+.password-group {
+    position: relative;
+}
+
+.password-group input[type="password"],
+.password-group input[type="text"] {
+    padding-right: var(--spacing5);
+}
+
+.password-group #togglePassword {
+    position: absolute;
+    transform: translateY(25%);
+    cursor: pointer;
+    color: var(--neutral-600);
+    font-size: 1.2em;
+    z-index: 2;
 }
 
 /* Message System */
