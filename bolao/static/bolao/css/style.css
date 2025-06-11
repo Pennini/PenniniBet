@@ -10,12 +10,6 @@
 @import url('components/_toast.css')
 
 /* Global Styles */
-.container {
-    max-width: var(--breakpoint-lg);
-    margin: 0 auto;
-    padding: var(--spacing-lg);
-}
-
 html {
     scroll-behavior: smooth;
 }
@@ -54,28 +48,6 @@ a {
 
 a:hover {
     color: var(--primary-light);
-}
-
-.btn,
-button {
-    all: unset;
-    display: inline-block;
-    margin: var(--spacing2) 0;
-    background: var(--neutral-800);
-    padding: var(--spacing2) var(--spacing3);
-    color: var(--text-color);
-    border-radius: var(--border-radius);
-    font: var(--p);
-    cursor: pointer;
-    transition: all 0.2s ease;
-    border: 1px solid var(--neutral-700);
-}
-
-.btn:hover,
-button:hover {
-    border-color: var(--primary-color);
-    background: var(--neutral-700);
-    transform: translateY(-1px);
 }
 
 img {
