@@ -1,3 +1,10 @@
+.icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    filter: invert(100%);
+}
+
 .profile {
     position: relative;
 }
@@ -18,15 +25,14 @@
 .dropdown {
     display: none;
     position: absolute;
-    top: 120%;
     right: 0;
+    top: 40px;
     background-color: var(--background-color);
+    padding: var(--spacing2);
     border-radius: var(--border-radius-md);
-    box-shadow: var(--shadow-lg);
-    min-width: 200px;
+    box-shadow: 0 0 10px var(--border-color);
     z-index: 100;
-    border: 1px solid var(--border-color);
-    overflow: hidden;
+    min-width: 180px;
 }
 
 .dropdown a {
@@ -35,12 +41,13 @@
     gap: var(--spacing-sm);
     padding: var(--spacing-sm) var(--spacing-md);
     color: var(--text-color);
+    border-radius: var(--spacing1);
     transition: all var(--transition-fast);
     font-size: 0.9em;
 }
 
 .dropdown a:hover {
-    background-color: rgba(37, 99, 235, 0.1);
+    background-color: var(--neutral-800);
     color: var(--primary-color);
 }
 
@@ -62,7 +69,7 @@
     background-color: rgba(239, 68, 68, 0.1) !important;
 }
 
-@media (max-width: 850px) {
+@media (max-width: var(--breakpoint-neutral)) {
     .avatar {
         width: 32px;
         height: 32px;
@@ -87,7 +94,7 @@
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: var(--breakpoint-sm)) {
     .avatar {
         width: 28px;
         height: 28px;
@@ -113,7 +120,7 @@
     }
 }
 
-@media (max-width: 375px) {
+@media (max-width: var(--breakpoint-xsm)) {
     .avatar {
         width: 24px;
         height: 24px;

@@ -3,31 +3,40 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: var(--spacing-md) var(--spacing-xl);
-    background-color: var(--background-color);
+    height: var(--navbar-height);
+    background-color: var(--surface-color);
+    border-bottom: 1px solid var(--border-color);
     box-shadow: var(--shadow-sm);
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
-    height: var(--navbar-height);
 }
 
-.nav-left {
+.nav-left,
+.nav-right {
     display: flex;
     align-items: center;
-    gap: var(--spacing-md);
+    var(--spacing-md);
 }
 
 .logo {
     display: flex;
     align-items: center;
     gap: var(--spacing-sm);
+    font-weight: bold;
+    color: var(--primary-color);
+    transition: all 0.2s ease;
 }
 
-.logo img {
-    height: 32px;
-    width: auto;
+.logo:hover {
+    color: var(--primary-light);
+}
+
+.logo svg {
+    width: 16px;
+    height: 16px;
 }
 
 .logo span {
@@ -50,10 +59,31 @@ nav {
     border-radius: var(--border-radius-md);
 }
 
+.nav-links a {
+    color: var(--text-secondary);
+    padding-bottom: 4px;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.nav-links a.active {
+    color: var(--primary-color);
+}
+
 .nav-link:hover,
 .nav-link.active {
     color: var(--primary-color);
-    background-color: rgba(37, 99, 235, 0.1);
+    background-color: var(--neutral-800);
+}
+
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
 }
 
 .nav-right {
@@ -62,7 +92,103 @@ nav {
     gap: var(--spacing-md);
 }
 
-@media (max-width: 850px) {
+/* Mobile menu button */
+.mobile-menu-btn {
+    display: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 5px;
+}
+
+.mobile-menu-btn span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--primary-color);
+    margin: 5px 0;
+    transition: 0.3s;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 850px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: fixed;
+        top: var(--navbar-height);
+        left: 0;
+        right: 0;
+        background-color: var(--surface-color);
+        flex-direction: column;
+        padding: 20px;
+        border-bottom: 1px solid var(--neutral-700);
+        gap: 15px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .dropdown {
+        position: fixed;
+        top: auto;
+        right: 0;
+        left: 0;
+        margin-top: 10px;
+        width: 100%;
+        border-radius: 0;
+    }
+}
+
+/* Adjustments for very small screens */
+@media screen and (max-width: 480px) {
+    nav {
+        padding: 0 15px;
+    }
+
+    .nav-left,
+    .nav-right {
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: 0.9em;
+    }
+
+    .auth-box {
+        padding: var(--spacing3);
+    }
+
+    .auth-form input {
+        font-size: 16px;
+        /* Prevents zoom on mobile */
+    }
+}
+
+/* Animation for mobile menu */
+.mobile-menu-btn.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.mobile-menu-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-btn.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+@media (max-width: var(--breakpoint-neutral)) {
     nav {
         padding: var(--spacing-xs) var(--spacing-sm);
     }
@@ -112,7 +238,7 @@ nav {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: var(--breakpoint-sm)) {
     nav {
         padding: var(--spacing-xs) var(--spacing-sm);
     }
@@ -135,7 +261,7 @@ nav {
     }
 }
 
-@media (max-width: 375px) {
+@media (max-width: var(--breakpoint-xsm)) {
     nav {
         padding: var(--spacing-xs) var(--spacing-xs);
     }

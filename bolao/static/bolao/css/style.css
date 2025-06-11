@@ -3,157 +3,19 @@
 @import 'base/_variables.css';
 
 /* Components */
+@import 'components/_hero.css';
 @import 'components/_buttons.css';
 @import 'components/_navbar.css';
 @import 'components/_dropdown.css';
+@import 'components/_toast.css'
 
-/* Layout */
+/* Global Styles */
 .container {
     max-width: var(--breakpoint-lg);
     margin: 0 auto;
     padding: var(--spacing-lg);
 }
 
-/* Sections */
-.welcome-section,
-.events-section,
-.orders-section,
-.settings-section {
-    text-align: center;
-    padding: var(--spacing-xl) 0;
-}
-
-h1 {
-    font-size: 2.5rem;
-    color: var(--text-color);
-    margin-bottom: var(--spacing-md);
-}
-
-p {
-    color: var(--text-light);
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Variables */
-:root {
-    /* Brand Colors - Orange */
-    --orange-600: #fb923c;
-    /* Main orange */
-    --orange-500: #fdba74;
-    /* Light orange */
-    --orange-400: #fed7aa;
-    /* Lighter orange */
-    --orange-300: #ffedd5;
-    /* Softest orange */
-
-    /* Supporting Colors - Feedback States */
-    /* Error - Red */
-    --error-600: #dc2626;
-    /* Main red */
-    --error-500: #ef4444;
-    /* Light red */
-    --error-400: #fca5a5;
-    /* Lighter red */
-    --error-300: #fee2e2;
-    /* Softest red */
-    --error-bg: rgba(220, 38, 38, 0.1);
-
-    /* Warning - Yellow */
-    --warning-600: #d97706;
-    /* Main yellow */
-    --warning-500: #f59e0b;
-    /* Light yellow */
-    --warning-400: #fbbf24;
-    /* Lighter yellow */
-    --warning-300: #fef3c7;
-    /* Softest yellow */
-    --warning-bg: rgba(217, 119, 6, 0.1);
-
-    /* Success - Green */
-    --success-600: #059669;
-    /* Main green */
-    --success-500: #10b981;
-    /* Light green */
-    --success-400: #34d399;
-    /* Lighter green */
-    --success-300: #d1fae5;
-    /* Softest green */
-    --success-bg: rgba(5, 150, 105, 0.1);
-
-    /* Info - Blue */
-    --info-600: #2563eb;
-    /* Main blue */
-    --info-500: #3b82f6;
-    /* Light blue */
-    --info-400: #60a5fa;
-    /* Lighter blue */
-    --info-300: #dbeafe;
-    /* Softest blue */
-    --info-bg: rgba(37, 99, 235, 0.1);
-
-    /* Neutral Colors */
-    --neutral-900: #111827;
-    /* Darkest */
-    --neutral-800: #1f2937;
-    /* Dark background */
-    --neutral-700: #374151;
-    /* Less dark */
-    --neutral-600: #4b5563;
-    /* Medium dark */
-    --neutral-500: #6b7280;
-    /* Medium */
-    --neutral-400: #9ca3af;
-    /* Medium light */
-    --neutral-300: #d1d5db;
-    /* Light */
-    --neutral-200: #e5e7eb;
-    /* Lighter */
-    --neutral-100: #f3f4f6;
-    /* Lightest */
-    --neutral-50: #f9fafb;
-    /* Almost white */
-    --white: #ffffff;
-
-    /* Semantic Colors */
-    --primary-color: var(--orange-600);
-    --primary-light: var(--orange-500);
-    --primary-lighter: var(--orange-400);
-
-    --background-color: var(--neutral-800);
-    --surface-color: var(--neutral-900);
-    --border-color: var(--neutral-600);
-    --text-color: var(--white);
-    --text-secondary: var(--neutral-400);
-    --text-disabled: var(--neutral-500);
-
-    /* Typography */
-    --ff1: 'Noto Sans JP', sans-serif;
-    --ff2: 'Roboto', sans-serif;
-    --p: 1rem/1.5em var(--ff1);
-    --h1: 600 3rem/1.2em var(--ff2);
-    --h2: 600 2rem/1.2em var(--ff2);
-
-    /* Spacing */
-    --spacing1: 4px;
-    --spacing2: 8px;
-    --spacing3: 16px;
-    --spacing4: 20px;
-    --spacing5: 40px;
-    --spacing6: 80px;
-    --spacing7: 160px;
-    --border-radius: 8px;
-    --navbar-height: 60px;
-}
-
-/* Global Styles */
 html {
     scroll-behavior: smooth;
 }
@@ -166,10 +28,22 @@ body {
     padding-top: var(--navbar-height);
 }
 
+h1 {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    margin-bottom: var(--spacing-md);
+}
+
 h2 {
     font: var(--h2);
     color: var(--text-color);
     margin: var(--spacing2) 0;
+}
+
+p {
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 a {
@@ -206,218 +80,6 @@ button:hover {
 
 img {
     max-width: 100%;
-}
-
-/* Navbar Styles */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 30px;
-    height: var(--navbar-height);
-    background-color: var(--surface-color);
-    border-bottom: 1px solid var(--border-color);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-}
-
-.nav-left,
-.nav-right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: bold;
-    color: var(--primary-color);
-    transition: all 0.2s ease;
-}
-
-.logo:hover {
-    color: var(--primary-light);
-}
-
-.logo svg {
-    width: 16px;
-    height: 16px;
-}
-
-.nav-links {
-    display: flex;
-    gap: 20px;
-}
-
-.nav-links a {
-    color: var(--text-secondary);
-    padding-bottom: 4px;
-    transition: all 0.2s ease;
-    position: relative;
-}
-
-.nav-links a:hover {
-    color: var(--primary-color);
-}
-
-.nav-links a.active {
-    color: var(--primary-color);
-}
-
-.nav-links a.active::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--primary-color);
-}
-
-.icon {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    filter: invert(100%);
-}
-
-.profile {
-    position: relative;
-}
-
-.avatar {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.dropdown {
-    display: none;
-    position: absolute;
-    right: 0;
-    top: 40px;
-    background-color: var(--background-color);
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px var(--border-color);
-    z-index: 100;
-    min-width: 180px;
-}
-
-.dropdown a {
-    display: block;
-    text-decoration: none;
-    color: #ccc;
-    padding: 8px;
-    border-radius: 4px;
-    font-size: 14px;
-}
-
-.dropdown a:hover {
-    background-color: var(--hover-color);
-    color: var(--text-color);
-}
-
-/* Mobile menu button */
-.mobile-menu-btn {
-    display: none;
-    cursor: pointer;
-    background: none;
-    border: none;
-    padding: 5px;
-}
-
-.mobile-menu-btn span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background-color: var(--primary-color);
-    margin: 5px 0;
-    transition: 0.3s;
-}
-
-/* Responsive Design */
-@media screen and (max-width: 850px) {
-    .mobile-menu-btn {
-        display: block;
-    }
-
-    .nav-links {
-        display: none;
-        position: fixed;
-        top: var(--navbar-height);
-        left: 0;
-        right: 0;
-        background-color: var(--surface-color);
-        flex-direction: column;
-        padding: 20px;
-        border-bottom: 1px solid var(--neutral-700);
-        gap: 15px;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links a {
-        width: 100%;
-        text-align: center;
-        padding: 10px 0;
-    }
-
-    .dropdown {
-        position: fixed;
-        top: auto;
-        right: 0;
-        left: 0;
-        margin-top: 10px;
-        width: 100%;
-        border-radius: 0;
-    }
-}
-
-/* Adjustments for very small screens */
-@media screen and (max-width: 480px) {
-    nav {
-        padding: 0 15px;
-    }
-
-    .nav-left,
-    .nav-right {
-        gap: 10px;
-    }
-
-    .logo {
-        font-size: 0.9em;
-    }
-
-    .auth-box {
-        padding: var(--spacing3);
-    }
-
-    .auth-form input {
-        font-size: 16px;
-        /* Prevents zoom on mobile */
-    }
-}
-
-/* Animation for mobile menu */
-.mobile-menu-btn.active span:nth-child(1) {
-    transform: rotate(-45deg) translate(-5px, 6px);
-}
-
-.mobile-menu-btn.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.mobile-menu-btn.active span:nth-child(3) {
-    transform: rotate(45deg) translate(-5px, -6px);
 }
 
 /* Auth Buttons */
@@ -475,15 +137,6 @@ nav {
         padding: var(--spacing1) var(--spacing2);
         font-size: 0.9em;
     }
-}
-
-/* Dropdown adjustments */
-.dropdown .logout-link {
-    color: #ff4444;
-}
-
-.dropdown .logout-link:hover {
-    background-color: rgba(255, 68, 68, 0.1);
 }
 
 /* Auth Forms */

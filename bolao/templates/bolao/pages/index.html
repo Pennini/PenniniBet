@@ -1,10 +1,24 @@
 {% extends "bolao/layout/base.html" %}
+{% load static %}
 
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<div class="welcome-section">
-    <h1>Welcome to Pennini Bet</h1>
-    <p>Your premier destination for sports betting.</p>
-</div>
+<!-- <div class="welcome_section"> -->
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+        <div class="hero-text">
+            <h1>Sua mensagem impactante aqui</h1>
+            <button onclick="cliqueHero()">Saiba Mais</button>
+        </div>
+        <div class="hero-image">
+            <img src="{% static 'bolao/img/taca_copa.png' %}" alt="Ilustração">
+        </div>
+        </div>
+    </section>
+
+<!-- </div> -->
 {% endblock %}

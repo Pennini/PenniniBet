@@ -1,21 +1,4 @@
 :root {
-    /* Colors */
-    --primary-color: #2563eb;
-    --primary-dark: #1d4ed8;
-    --primary-light: #3b82f6;
-
-    --secondary-color: #64748b;
-    --secondary-dark: #475569;
-    --secondary-light: #94a3b8;
-
-    --success-color: #22c55e;
-    --danger-color: #ef4444;
-    --warning-color: #f59e0b;
-
-    --background-color: #ffffff;
-    --text-color: #1f2937;
-    --text-light: #6b7280;
-
     /* Spacing */
     --spacing-xs: 0.25rem;
     --spacing-sm: 0.5rem;
@@ -31,6 +14,146 @@
     /* Breakpoints */
     --breakpoint-sm: 640px;
     --breakpoint-md: 768px;
+    --breakpoint-lg: 1024px;
+    --breakpoint-xl: 1280px;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+
+    /* Transitions */
+    --transition-fast: 150ms;
+    --transition-normal: 300ms;
+    --transition-slow: 500ms;
+}
+
+:root {
+    /* Brand Colors - Orange */
+    --orange-600: #fb923c;
+    /* Main orange */
+    --orange-500: #fdba74;
+    /* Light orange */
+    --orange-400: #fed7aa;
+    /* Lighter orange */
+    --orange-300: #ffedd5;
+    /* Softest orange */
+
+    /* Supporting Colors - Feedback States */
+    /* Error - Red */
+    --error-600: #dc2626;
+    /* Main red */
+    --error-500: #ef4444;
+    /* Light red */
+    --error-400: #fca5a5;
+    /* Lighter red */
+    --error-300: #fee2e2;
+    /* Softest red */
+    --error-bg: rgba(220, 38, 38, 0.1);
+
+    /* Warning - Yellow */
+    --warning-600: #d97706;
+    /* Main yellow */
+    --warning-500: #f59e0b;
+    /* Light yellow */
+    --warning-400: #fbbf24;
+    /* Lighter yellow */
+    --warning-300: #fef3c7;
+    /* Softest yellow */
+    --warning-bg: rgba(217, 119, 6, 0.1);
+
+    /* Success - Green */
+    --success-600: #059669;
+    /* Main green */
+    --success-500: #10b981;
+    /* Light green */
+    --success-400: #34d399;
+    /* Lighter green */
+    --success-300: #d1fae5;
+    /* Softest green */
+    --success-bg: rgba(5, 150, 105, 0.1);
+
+    /* Info - Blue */
+    --info-600: #2563eb;
+    /* Main blue */
+    --info-500: #3b82f6;
+    /* Light blue */
+    --info-400: #60a5fa;
+    /* Lighter blue */
+    --info-300: #dbeafe;
+    /* Softest blue */
+    --info-bg: rgba(37, 99, 235, 0.1);
+
+    /* Neutral Colors */
+    --neutral-900: #111827;
+    /* Darkest */
+    --neutral-800: #1f2937;
+    /* Dark background */
+    --neutral-700: #374151;
+    /* Less dark */
+    --neutral-600: #4b5563;
+    /* Medium dark */
+    --neutral-500: #6b7280;
+    /* Medium */
+    --neutral-400: #9ca3af;
+    /* Medium light */
+    --neutral-300: #d1d5db;
+    /* Light */
+    --neutral-200: #e5e7eb;
+    /* Lighter */
+    --neutral-100: #f3f4f6;
+    /* Lightest */
+    --neutral-50: #f9fafb;
+    /* Almost white */
+    --white: #ffffff;
+
+    /* Semantic Colors */
+    --primary-color: var(--orange-600);
+    --primary-light: var(--orange-500);
+    --primary-lighter: var(--orange-400);
+
+    --background-color: var(--neutral-800);
+    --surface-color: var(--neutral-900);
+    --border-color: var(--neutral-600);
+    --text-color: var(--white);
+    --text-secondary: var(--neutral-400);
+    --text-disabled: var(--neutral-500);
+
+    /* Typography */
+    --ff1: 'Noto Sans JP', sans-serif;
+    --ff2: 'Roboto', sans-serif;
+    --p: 1rem/1.5em var(--ff1);
+    --h1: 600 3rem/1.2em var(--ff2);
+    --h2: 600 2rem/1.2em var(--ff2);
+
+    /* Spacing */
+    --spacing1: 4px;
+    --spacing2: 8px;
+    --spacing3: 16px;
+    --spacing4: 20px;
+    --spacing5: 40px;
+    --spacing6: 80px;
+    --spacing7: 160px;
+    --border-radius: 8px;
+    --navbar-height: 60px;
+
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+
+    /* Border Radius */
+    --border-radius-sm: 0.25rem;
+    --border-radius-md: 0.5rem;
+    --border-radius-lg: 1rem;
+
+    /* Breakpoints */
+    --breakpoint-xsm: 375px;
+    --breakpoint-sm: 480px;
+    --breakpoint-md: 768px;
+    --breakpoint-neutral: 850px;
     --breakpoint-lg: 1024px;
     --breakpoint-xl: 1280px;
 
